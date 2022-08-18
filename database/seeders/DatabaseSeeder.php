@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Management\ManagementTableFieldsTypes;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -27,5 +28,20 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'),
             'user_role_id' => 1
         ]);
+        $table_fields_types = [
+            [
+                'type_name' => 'ورودی',
+            ],
+            [
+                'type_name' => 'عددی'
+            ],
+            [
+                'type_name' => 'لیست'
+            ],
+            [
+                'type_name' => 'لیست چند انتخابی'
+            ]
+        ];
+        ManagementTableFieldsTypes::insert($table_fields_types);
     }
 }

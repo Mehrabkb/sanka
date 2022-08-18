@@ -343,14 +343,14 @@
                 <li class="header">منو</li>
                 <li class="active treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>داشبرد</span>
+                        <i class="fa fa-dashboard"></i> <span>امکانات مدیریتی</span>
                         <span class="pull-left-container">
               <i class="fa fa-angle-right pull-left"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> داشبرد اول</a></li>
-                        <li><a href="index2.html"><i class="fa fa-circle-o"></i> داشبرد دوم</a></li>
+                        <li class="active"><a href="{{ route('management.bases') }}"><i class="fa fa-circle-o"></i> اطلاعات پایه</a></li>
+                        <li><a href="{{ route('management.process') }}"><i class="fa fa-circle-o"></i> فرایندها</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -753,5 +753,34 @@
 <script src="{{ asset('adminpanel') }}/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('adminpanel') }}/dist/js/demo.js"></script>
+<script src="{{ asset('adminpanel') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="{{ asset('adminpanel') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script >
+    $(function () {
+        $('.data-table').DataTable({
+            'paging'      : true,
+            'lengthChange': true,
+            'searching'   : true,
+            'ordering'    : true,
+            'info'        : true,
+            'autoWidth'   : true,
+            language: {
+                "search": "جستجو",
+                "info": "صفحه _PAGE_ از _PAGES_",
+                paginate: {
+                    previous: 'قبلی',
+                    next:     'بعدی'
+                },
+                aria: {
+                    paginate: {
+                        previous: 'قبلی',
+                        next:     'بغدی'
+                    }
+                }
+            }
+        })
+    })
+</script>
+@yield('scripts')
 </body>
 </html>
